@@ -107,10 +107,10 @@ _suggest_test_flags()
     COMPREPLY=( $(compgen -W "${flag_options}" -- $cur) )
 }
 
-_suggest_commands_flags()
+_suggest_commands()
 {
     local flag_options cur
-    flag_options="bundle compile info init install repl test"
+    flag_options="bundle compile format info init install repl test"
     cur=$1
     COMPREPLY=( $(compgen -W "${flag_options}" -- $cur) )
 }
@@ -128,7 +128,7 @@ _derw()
 
     # for when we don't have a command yet
     if [[ $COMP_CWORD -eq 1 ]]; then
-        _suggest_commands_flags $cur
+        _suggest_commands $cur
         return 0
     fi
 
