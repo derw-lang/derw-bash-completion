@@ -54,7 +54,7 @@ _suggest_bundle_flags()
 _suggest_compile_flags()
 {
     local flag_options cur
-    flag_options="--files --target --output --verify --debug --only --run --format --names --watch --quiet --help"
+    flag_options="--files --target --output --verify --debug --only --run --names --watch --quiet --help"
     cur=$1
     COMPREPLY=( $(compgen -W "${flag_options}" -- $cur) )
 }
