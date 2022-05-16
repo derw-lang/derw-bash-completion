@@ -107,10 +107,26 @@ _suggest_test_flags()
     COMPREPLY=( $(compgen -W "${flag_options}" -- $cur) )
 }
 
+_suggest_template_flags()
+{
+    local flag_options cur
+    flag_options="--path --template --help"
+    cur=$1
+    COMPREPLY=( $(compgen -W "${flag_options}" -- $cur) )
+}
+
+_suggest_template_targets()
+{
+    local flag_options cur
+    flag_options="web"
+    cur=$1
+    COMPREPLY=( $(compgen -W "${flag_options}" -- $cur) )
+}
+
 _suggest_commands()
 {
     local flag_options cur
-    flag_options="bundle compile format info init install repl test"
+    flag_options="bundle compile format info init install repl test template"
     cur=$1
     COMPREPLY=( $(compgen -W "${flag_options}" -- $cur) )
 }
@@ -185,6 +201,14 @@ _derw()
     elif [[ $command_name == "test" ]]; then
         if [[ $cur == -* ]]; then
             _suggest_test_flags $cur
+            return 0
+        fi
+    elif [[ $command_name == "template" ]]; then
+        if [[ $cur == -* ]]; then
+            _suggest_template_flags $cur
+            return 0
+        elif [[ $prev == "--template" ]]; then
+            _suggest_template_targets "$cur"
             return 0
         fi
     fi
