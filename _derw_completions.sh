@@ -102,7 +102,7 @@ _suggest_repl_flags()
 _suggest_test_flags()
 {
     local flag_options cur
-    flag_options="--watch --help"
+    flag_options="--watch --function --file --only-fails --help"
     cur=$1
     COMPREPLY=( $(compgen -W "${flag_options}" -- $cur) )
 }
