@@ -46,7 +46,7 @@ _suggest_files()
 _suggest_bundle_flags()
 {
     local flag_options cur
-    flag_options="--output --entry --quiet --watch --help"
+    flag_options="--output --entry --quiet --watch --help --optimize"
     cur=$1
     COMPREPLY=( $(compgen -W "${flag_options}" -- $cur) )
 }
