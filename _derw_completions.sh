@@ -67,6 +67,14 @@ _suggest_compile_targets()
     COMPREPLY=( $(compgen -W "${flag_options}" -- $cur) )
 }
 
+_suggest_format_flags()
+{
+    local flag_options cur
+    flag_options="--watch --help"
+    cur=$1
+    COMPREPLY=( $(compgen -W "${flag_options}" -- $cur) )
+}
+
 _suggest_info_flags()
 {
     local flag_options cur
