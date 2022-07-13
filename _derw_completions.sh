@@ -126,7 +126,7 @@ _suggest_template_flags()
 _suggest_template_targets()
 {
     local flag_options cur
-    flag_options="web"
+    flag_options="web html"
     cur=$1
     COMPREPLY=( $(compgen -W "${flag_options}" -- $cur) )
 }
